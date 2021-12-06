@@ -43,9 +43,9 @@ const Slimes = mongoose.model("Slimes", SlimesSchema)
 
 const FoodsSchema = new mongoose.Schema({
     name: String,
-    maxHarvest: Number,
+    maxHarvest: String,
     foodType: String,
-    decayTime: Number,
+    decayTime: String,
     favoriteOf: String,
     image: String,
 })
@@ -55,7 +55,7 @@ const Foods = mongoose.model("Foods", FoodsSchema)
 const ToysSchema = new mongoose.Schema({
     name: String,
     favoriteOf: String,
-    price: Number,
+    price: String,
     image: String,
 })
 
