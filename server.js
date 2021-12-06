@@ -34,9 +34,9 @@ const SlimesSchema = new mongoose.Schema({
     dietType: String,
     favFood: String,
     favToy: String,
-    image: String,
     slimeType: String,
     color: String,
+    image: String,
 })
 
 const Slimes = mongoose.model("Slimes", SlimesSchema)
@@ -47,6 +47,7 @@ const FoodsSchema = new mongoose.Schema({
     foodType: String,
     decayTime: Number,
     favoriteOf: String,
+    image: String,
 })
 
 const Foods = mongoose.model("Foods", FoodsSchema)
@@ -55,6 +56,7 @@ const ToysSchema = new mongoose.Schema({
     name: String,
     favoriteOf: String,
     price: Number,
+    image: String,
 })
 
 const Toys = mongoose.model("Toys", ToysSchema)
@@ -70,10 +72,6 @@ app.use(express.json());
 ///////////////////////////////
 // ROUTES
 ////////////////////////////////
-
-app.get("/", async (req, res) => {
-    <h1>This is the home page!</h1>
-});
 
 app.get("/slimes", async (req, res) => {
     try {
