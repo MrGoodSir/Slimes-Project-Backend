@@ -41,6 +41,16 @@ const SlimesSchema = new mongoose.Schema({
 
 const Slimes = mongoose.model("Slimes", SlimesSchema)
 
+const FoodsSchema = new mongoose.Schema({
+    name: String,
+    maxHarvest: Number,
+    foodType: String,
+    decayTime: Number,
+    favoriteOf: String,
+})
+
+const Foods = mongoose.model("Foods", FoodsSchema)
+
 ///////////////////////////////
 // MiddleWare
 ////////////////////////////////
