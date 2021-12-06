@@ -53,20 +53,11 @@ app.use(express.json());
 // ROUTES
 ////////////////////////////////
 
-app.get("/", (req, res) => {
-  res.send("hello world");
+app.get("/", async (req, res) => {
+    <h1>This is the home page!</h1>
 });
 
-app.get("/home", async (req, res) => {
-    console.log("hello haylie faggot")
-    // try {
-    //     res.json(await Slimes.find({}));
-    // } catch (error) {
-    //     res.status(400).json(error);
-    // }
-});
-
-app.get("/home/slimes", async (req, res) => {
+app.get("/slimes", async (req, res) => {
     try {
         res.json(await Slimes.find({}));
     } catch (error) {
@@ -74,7 +65,7 @@ app.get("/home/slimes", async (req, res) => {
     }
 })
 
-app.post("/home/slimes", async (req, res) => {
+app.post("/slimes", async (req, res) => {
     try {
         res.json(await Slimes.create(req.body));
     } catch (error) {
@@ -82,7 +73,7 @@ app.post("/home/slimes", async (req, res) => {
     }
 })
 
-app.delete("home/slimes/:id", async (req, res) => {
+app.delete("/slimes/:id", async (req, res) => {
     try {
         res.json(await Slimes.findByIdAndDelete(req.params.id));
     } catch (error) {
@@ -90,7 +81,7 @@ app.delete("home/slimes/:id", async (req, res) => {
     }
 })
 
-app.put("/home/slimes/:id", async (req, res) => {
+app.put("/slimes/:id", async (req, res) => {
     try {
         res.json(await Slimes.findByIdAndUpdate(req.params.id, req.body, { new: true }))
     } catch (error) {
@@ -98,7 +89,7 @@ app.put("/home/slimes/:id", async (req, res) => {
     }
 })
 
-app.get("/home/foods", async (req, res) => {
+app.get("/foods", async (req, res) => {
     try {
         res.json(await Foods.find({}));
     } catch (error) {
@@ -106,7 +97,7 @@ app.get("/home/foods", async (req, res) => {
     }
 })
 
-app.post("/home/foods", async (req, res) => {
+app.post("/foods", async (req, res) => {
     try {
         res.json(await Foods.create(req.body))
     } catch (error) {
@@ -114,7 +105,7 @@ app.post("/home/foods", async (req, res) => {
     }
 })
 
-app.delete("/home/foods/:id", async (req, res) => {
+app.delete("/foods/:id", async (req, res) => {
     try {
         res.json(await Foods.findByIdAndDelete(req.params.id));
     } catch (error) {
@@ -122,13 +113,15 @@ app.delete("/home/foods/:id", async (req, res) => {
     }
 })
 
-app.put("/home/foods/:id", async (req, res) => {
+app.put("/foods/:id", async (req, res) => {
     try {
-        res.json(await )
+        res.json(await Foods.findByIdAndUpdate(req.params.id, req.body, { new: true }))
+    } catch (error) {
+        res.status(400).json(error);
     }
 })
 
-app.get("/home/toys", async (req, res) => {
+app.get("/toys", async (req, res) => {
     try {
         res.json(await Toys.find({}));
     } catch (error) {
@@ -136,9 +129,25 @@ app.get("/home/toys", async (req, res) => {
     }
 })
 
-app.post("/home/toys", async (req, res) => {
+app.post("/toys", async (req, res) => {
     try {
         res.json(await Toys.create(req.body))
+    } catch (error) {
+        res.status(400).json(error);
+    }
+})
+
+app.delete("/toys/:id", async (req, res) => {
+    try {
+        res.json(await Toys.findByIdAndDelete(req.params.id));
+    } catch (error) {
+        res.status(400).json(error);
+    }
+})
+
+app.put("/toys/:id", async (req, res) => {
+    try {
+        res.json(await Toys.findByIdAndUpdate(req.params.id, req.body, { new: true }))
     } catch (error) {
         res.status(400).json(error);
     }
