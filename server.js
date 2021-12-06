@@ -51,6 +51,14 @@ const FoodsSchema = new mongoose.Schema({
 
 const Foods = mongoose.model("Foods", FoodsSchema)
 
+const ToysSchema = new mongoose.Schema({
+    name: String,
+    favoriteOf: String,
+    price: Number,
+})
+
+const Toys = mongoose.model("Toys", ToysSchema)
+
 ///////////////////////////////
 // MiddleWare
 ////////////////////////////////
